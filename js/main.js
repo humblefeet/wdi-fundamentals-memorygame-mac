@@ -31,12 +31,15 @@ var checkForMatch = function(){
 	}
 };
 
-var flipCard = function(cardId){
-	console.log("User has flipped " + cards[cardId].rank);
+var flipCard = function(){
+	var cardId = this.getAttribute('data-Id');
 	cardsInPlay.push(cards[cardId].rank);
 
+	console.log("User has flipped " + cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
+
+	this.setAttribute('src', cards[cardId].cardImage);
 
 	if (cardsInPlay.length === 2 || cardsInPlay.length ===4){
 		checkForMatch();
